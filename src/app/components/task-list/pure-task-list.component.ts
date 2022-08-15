@@ -24,13 +24,13 @@ export class PureTaskListComponent {
    * Event to change the task to pinned
    */
   @Output()
-  onPinTask = new EventEmitter();
+  onPinTask: EventEmitter<any> = new EventEmitter();
 
   /**
    * Event to change the task to archived
    */
   @Output()
-  onArchiveTask = new EventEmitter();
+  onArchiveTask: EventEmitter<any> = new EventEmitter();
 
   @Input()
   set tasks(arr: Task[]) {
@@ -38,8 +38,8 @@ export class PureTaskListComponent {
       ...arr.filter(t => t.state === 'TASK_PINNED'),
       ...arr.filter(t => t.state !== 'TASK_PINNED')
     ];
-    const filteredTasks = initialTasks.filter(t => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED');
-    this.tasksInOrder = filteredTasks.filter(t => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED');
+    // const filteredTasks = initialTasks.filter(t => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED');
+    this.tasksInOrder = initialTasks.filter(t => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED' || t.state === 'TASK_ARCHIVED');
   }
 
   constructor() { }
