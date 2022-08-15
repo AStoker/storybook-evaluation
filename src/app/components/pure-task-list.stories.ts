@@ -62,3 +62,11 @@ Empty.args = {
   ...Loading.args,
   loading: false
 };
+
+export const Archived = Template.bind({});
+Archived.args = {
+  tasks: [
+    ...Default.args['tasks'].slice(0, 5),
+    { id: '6', title: 'Task 6 (archived)', state: 'TASK_ARCHIVED' }
+  ]
+};
