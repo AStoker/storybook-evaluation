@@ -12,10 +12,10 @@ export class TaskComponent {
   @Input() task: Task;
 
   @Output()
-  onPinTask = new EventEmitter<Event>();
+  onPinTask = new EventEmitter<String>();
 
   @Output()
-  onArchiveTask = new EventEmitter<Event>();
+  onArchiveTask = new EventEmitter<String>();
 
   /**
    * Component method to trigger the onPin event
